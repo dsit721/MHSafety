@@ -1,33 +1,18 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Notfound from "./pages/Notfound";
 import Home from "./pages/Home";
-import New from "./pages/New";
-import Detail from "./pages/Detail";
-import Edit from "./pages/Edit";
-import Profile from "./pages/Profile";
-import LeftMenu from "./LeftMenu";
+import Login from "./pages/Login";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div className="app-container">
-      <LeftMenu />
-      <div className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-
-          <Route path="/new" element={<New />}></Route>
-          <Route path="/edit" element={<Edit />}></Route>
-          <Route path="/:id" element={<Detail />}></Route>
-          {/* <Route path="*" element={<Notfound />}></Route> */}
-        </Routes>
-      </div>
+    <div className="App">
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<Home />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

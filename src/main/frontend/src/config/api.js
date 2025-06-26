@@ -2,7 +2,7 @@
 const API_CONFIG = {
   // 개발 환경
   development: {
-    baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8080",
+    baseURL: import.meta.env.VITE_API_BASE_URL || "http://59.3.27.33:8180",
     timeout: 10000,
   },
   // 프로덕션 환경
@@ -23,6 +23,10 @@ const getCurrentConfig = () => {
 export const API_ENDPOINTS = {
   // 사용자 관련
   USERS: {
+    LOGIN: "/api/users/login",
+    LOGOUT: "/api/users/logout",
+    GET_CURRENT: "/api/users/current",
+    GET_SESSION_STATUS: "/api/users/session-status",
     GET_ALL: "/api/users",
     GET_BY_ID: (id) => `/api/users/${id}`,
     GET_BY_EMAIL: (email) => `/api/users/email/${email}`,
@@ -69,12 +73,14 @@ export const getDefaultHeaders = () => {
 export const getCorsConfig = () => {
   return {
     mode: "cors",
-    credentials: "omit",
+    credentials: "include",
   };
 };
 
 // 현재 설정 내보내기
 export const currentConfig = getCurrentConfig();
+
+// fetch 요청 시 credentials: 'include'만 사용
 
 // 기본 내보내기
 export default {

@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.PATCH})
 public class UserController {
     
     private final UserService userService;
@@ -23,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
     
-    // 모든 사용자 조회
+    // 모든 사용자 조회 (세션 확인 포함)
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();

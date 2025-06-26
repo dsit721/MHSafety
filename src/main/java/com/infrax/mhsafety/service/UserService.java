@@ -50,6 +50,9 @@ public class UserService {
             if (userDetails.getPassword() != null && !userDetails.getPassword().isEmpty()) {
                 user.setPassword(userDetails.getPassword());
             }
+            if (userDetails.getRole() != null && !userDetails.getRole().isEmpty()) {
+                user.setRole(userDetails.getRole());
+            }
             return userRepository.save(user);
         }
         throw new RuntimeException("사용자를 찾을 수 없습니다: " + id);

@@ -17,7 +17,7 @@ npm run dev
 
 ```env
 # 개발 환경
-VITE_API_BASE_URL=http://localhost:8080
+VITE_API_BASE_URL=http://localhost:8180
 VITE_APP_TITLE=MHSafety
 ```
 

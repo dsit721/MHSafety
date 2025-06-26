@@ -80,7 +80,7 @@ spring.datasource.password=your_actual_password
 ### 사용자 생성
 
 ```bash
-curl -X POST http://localhost:8080/api/users \
+curl -X POST http://localhost:8180/api/users \
   -H "Content-Type: application/json" \
   -d '{
     "name": "홍길동",
@@ -92,13 +92,13 @@ curl -X POST http://localhost:8080/api/users \
 ### 모든 사용자 조회
 
 ```bash
-curl http://localhost:8080/api/users
+curl http://localhost:8180/api/users
 ```
 
 ### 특정 사용자 조회
 
 ```bash
-curl http://localhost:8080/api/users/1
+curl http://localhost:8180/api/users/1
 ```
 
 ## 7. 문제 해결

@@ -29,13 +29,15 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
     
+    @Column(name = "role", nullable = false)
+    private String role = "USER"; // 기본값을 USER로 설정
+    
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
-    private String role = "USER"; // ADMIN, USER 등
     
     // 기본 생성자
     public User() {
@@ -49,6 +51,15 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+    
+    // 생성자 (role 포함)
+    public User(String name, String email, String password, String role) {
+        this();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
     
     // Getter와 Setter
@@ -84,6 +95,15 @@ public class User {
     
     public void setPassword(String password) {
         this.password = password;
+        this.updatedAt = LocalDateTime.now();
+    }
+    
+    public String getRole() {
+        return role;
+    }
+    
+    public void setRole(String role) {
+        this.role = role;
         this.updatedAt = LocalDateTime.now();
     }
     

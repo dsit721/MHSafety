@@ -33,13 +33,14 @@ CREATE TABLE IF NOT EXISTS works (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- 샘플 사용자 데이터 삽입 (선택사항)
+-- 사용자 테이블에 샘플 데이터 삽입 (중복 방지)
 INSERT INTO users (name, email, password, role) VALUES 
 ('관리자', 'admin@mhsafety.com', 'password123', 'ADMIN'),
+('매니저', 'manager@mhsafety.com', 'password123', 'MANAGER'),
 ('테스트 사용자', 'test@mhsafety.com', 'password123', 'USER')
 ON DUPLICATE KEY UPDATE name = VALUES(name);
 
--- 샘플 작업 데이터 삽입 (선택사항)
+-- 작업 테이블에 샘플 데이터 삽입 (중복 방지)
 INSERT INTO works (work_date, address, worker, description, status, front_image, before_image, after_image) VALUES 
 ('2024-01-15', '서울특별시 강남구 테헤란로 123', '김철수', '맨홀 뚜껑 교체 및 안전장치 설치', '완료', 'https://example.com/front1.jpg', 'https://example.com/before1.jpg', 'https://example.com/after1.jpg'),
 ('2024-01-20', '서울특별시 서초구 서초대로 456', '이영희', '맨홀 내부 점검 및 정비', '진행중', 'https://example.com/front2.jpg', 'https://example.com/before2.jpg', NULL),
